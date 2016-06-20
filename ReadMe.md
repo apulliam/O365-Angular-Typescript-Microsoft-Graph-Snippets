@@ -6,6 +6,12 @@ This is a TypeScript port of the Microsoft Graph snippets with Angular sample fr
 
 ## Building the Sample
 
+You will need to have *npm* in your path, and both *bower* and *tsd* installed globally:
+
+> npm install bower -g
+
+> npm install tsd -g
+
 After cloning the repository, run *npm install* from the root of the repository to restore Node dev-dependency packages.
 
 Run *bower install* to restore client side JavaScript packages.
