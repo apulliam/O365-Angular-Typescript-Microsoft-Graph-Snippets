@@ -8,9 +8,9 @@ This is a TypeScript port of the Microsoft Graph snippets with Angular sample fr
 
 After cloning the repository, run *npm install* from the root of the repository to restore Node dev-dependency packages.
 
-Run "bower install to restore client side JavaScript packages.
+Run *bower install* to restore client side JavaScript packages.
 
-Run *TSD install* to restore TypeScript definition files.
+Run *tsd install* to restore TypeScript definition files.
 
 ## Running the Sample
 
