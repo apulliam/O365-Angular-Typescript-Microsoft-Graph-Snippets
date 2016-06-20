@@ -1,0 +1,8 @@
+node_modules/
+typings
+wwwroot/lib
+wwwroot/tsd.d.ts
+wwwroot/app/*.js
+wwwroot/app/*.map
+wwwroot/app/*/*.js
+wwwroot/app/*/*.js.map

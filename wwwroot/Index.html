@@ -1,0 +1,97 @@
+﻿<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularARM</title>
+    <!-- Third party dependencies. -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+     <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal.min.js"></script>
+     <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.7/js/adal-angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.8.0/loading-bar.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.8.0/loading-bar.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.4/ladda.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css">
+     <script src="lib/ladda-angular/dist/ladda-angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.2.2/angular-local-storage.min.js"></script>
+    -->
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+    <script src="./lib/adal-angular/lib/adal.js"></script>
+    <script src="./lib/adal-angular/lib/adal-angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.8.0/loading-bar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.8.0/loading-bar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Ladda/0.9.4/ladda.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ladda-bootstrap/0.9.4/ladda-themeless.min.css">
+    <script src="./lib/ladda-angular/dist/ladda-angular.js"></script>
+    <script src="./lib/angular-local-storage/dist/angular-local-storage.js"></script>
+
+
+    <!-- App code. -->
+
+
+    <script src="./app/settings.js"></script>
+    <script src="./app/app.module.js"></script>
+
+
+    <script src="./app/services/services.module.js"></script>
+    <script src="./app/services/common.service.js"></script>
+    <script src="./app/services/user.service.js"></script>
+    <script src="./app/services/group.service.js"></script>
+    <script src="./app/services/drive.service.js"></script>
+
+
+    <script src="./app/navbar.controller.js"></script>
+    <script src="./app/main/main.controller.js"></script>
+
+    <script src="./app/app.config.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+
+<body ng-app="app">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" ng-controller="app.NavbarController as nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" ng-click="nav.isCollapsed = !nav.isCollapsed">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Microsoft Graph snippets</a>
+            </div>
+            <div class="navbar-collapse" collapse="nav.isCollapsed">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="!userInfo.isAuthenticated" ng-click="nav.connect()" class="navbar-signin">
+                        <a href="">Connect</a>
+                    </li>
+                    <li ng-show="userInfo.isAuthenticated" ng-click="nav.disconnect()" class="navbar-signin">
+                        <a href="">Disconnect</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <main>
+            <div ng-view></div>
+        </main>
+    </div>
+</body>
+
+</html>
+

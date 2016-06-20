@@ -1,0 +1,74 @@
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file. -->
+
+<div class="container-fluid">
+  <div class="row" ng-show="!userInfo.isAuthenticated">
+    <div class="col-xs-6">
+      <h2 class="lead">Use the button in the navigation bar to connect to Office 365 and explore the Microsoft Graph API against your own tenant.</h2>
+    </div>
+  </div>
+  <div class="row" ng-show="userInfo.isAuthenticated">
+    <div class="col-sm-3 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li ng-repeat="snippetGroup in vm.snippetGroups">
+          <p class="groupTitle">{{ snippetGroup.groupTitle }}</p>
+          <ul class="nav nav-sidebar">
+            <li ng-repeat="snippet in snippetGroup.snippets" ng-click="vm.activeSnippet = snippet" ng-class="main.setActive(snippet.title)">
+              <a href="">{{ snippet.title }} <p ng-show="snippet.requireAdmin" class="admin-sidebar">Requires admin account</p></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-9 col-sm-offset-3 col-md-offset-3 main" ng-show="userInfo.isAuthenticated">
+      <h1 class="page-header">{{ vm.activeSnippet.title }}</h1>
+      <button class="btn btn-primary ladda-button" ng-click="vm.activeSnippet.run()" ladda-button="vm.laddaLoading"
+      data-style="expand-right">Run snippet</button>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Description</h3>
+        </div>
+        <div class="panel-body">
+          <p>{{ vm.activeSnippet.description }}</p>
+          <p ng-show="vm.activeSnippet.requireAdmin" class="admin-description">This operation requires a user with an admin account.</p>
+          <br />
+          <p>Documentation link:
+            <a href="{{ vm.activeSnippet.documentationUrl }}" target="_blank">{{ vm.activeSnippet.documentationUrl }}</a>
+          </p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">API URL</h3>
+        </div>
+        <div class="panel-body">
+          <h4>{{ vm.activeSnippet.apiUrl }}</h4>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-show="vm.activeSnippet.setupError">
+        <div class="panel-heading">
+          <h3 class="panel-title">Setup error</h3>
+        </div>
+        <div class="panel-body">
+          <p>This snippet required setup and it failed.</p>
+          <p class="text-danger"><strong>{{ vm.activeSnippet.setupError }}</strong></p>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-show="vm.activeSnippet.request">
+        <div class="panel-heading">
+          <h3 class="panel-title">Request</h3>
+        </div>
+        <div class="panel-body">
+          <pre>{{ vm.activeSnippet.request | json }}</pre>
+        </div>
+      </div>
+      <div class="panel panel-default" ng-show="vm.activeSnippet.response">
+        <div class="panel-heading">
+          <h3 class="panel-title">Response</h3>
+        </div>
+        <div class="panel-body">
+          <pre>{{ vm.activeSnippet.response | json }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

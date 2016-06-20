@@ -1,0 +1,26 @@
+{
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        ".git": true,
+        "obj": true,
+        "bin": true,
+        ".vs": true,
+        "*.sln": true,
+        "*.csproj": true,
+        "*.csproj.user": true,
+        "Web.config": true,
+        "web.Debug.config": true,
+        "web.Release.config": true,
+        "typings": true,
+        "node_modules": true,
+        "**/*.js.map": true,
+         "**/*.js": {"when": "$(basename).ts"}
+    },
+    "search.exclude": {
+        ".git": true,
+        "typings": true,
+        "node_modules": true,
+        "bin": true
+    }
+}

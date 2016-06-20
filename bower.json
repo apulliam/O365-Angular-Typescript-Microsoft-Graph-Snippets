@@ -1,0 +1,11 @@
+{
+  "name": "ASP.NET",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.6",
+    "angular-route": "1.4.6",
+    "adal-angular": "1.0.8",
+    "ladda-angular": "1.0.1",
+    "angular-local-storage": "0.2.3"
+  }
+}

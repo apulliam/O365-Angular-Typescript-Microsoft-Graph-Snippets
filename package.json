@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "name": "angulartypescriptgraphsnippets",
+  "private": true,
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tsb": "^1.10.1",
+    "gulp-typescript": "^2.11.0",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5"
+  }
+}
